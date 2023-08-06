@@ -1,0 +1,20 @@
+{
+  "name": "jma-bosai-map-reloader",
+  "version": "0.0.1",
+  "description": "reload jma bosai map automatically",
+  "author": "Takuya Eguchi <seal2501@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist",
+    "dev": "tsc -w",
+    "format": "prettier --write ./src",
+    "build": "yarn clean && tsc && cp -r ./public ./dist && cp ./manifest.json ./dist"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.0.243",
+    "prettier": "3.0.1",
+    "rimraf": "5.0.1",
+    "typescript": "5.1.6"
+  },
+  "packageManager": "yarn@3.6.1"
+}

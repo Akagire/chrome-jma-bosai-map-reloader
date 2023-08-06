@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "jma-bosai-map-reloader",
+  "description": "気象庁の地図を定期的にリロードします",
+  "version": "0.1",
+  "permissions": [
+    "tabs"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.jma.go.jp/bosai/nowc/*"
+      ],
+      "js": [
+        "content_scripts/nowc.js"
+      ],
+      "run_at": "document_end"
+    }
+  ]
+}
