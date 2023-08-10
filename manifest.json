@@ -1,8 +1,11 @@
 {
   "manifest_version": 3,
-  "name": "jma-bosai-map-reloader",
-  "description": "気象庁の地図を定期的にリロードします",
+  "name": "JMA防災マップリローダー",
+  "description": "気象庁の防災マップを定期的にリロードします",
   "version": "0.1",
+  "icons": {
+    "128": "public/128.png"
+  },
   "permissions": [
     "tabs"
   ],
