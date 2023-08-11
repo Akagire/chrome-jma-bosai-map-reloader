@@ -1,6 +1,8 @@
 node_modules
 
+# build files
 /dist
+extension.zip
 
 # yarn
 .pnp.*
