@@ -18,8 +18,6 @@ chrome.tabs.onRemoved.removeListener(applyEvent);
 
 // https://blog.myntinc.com/2017/06/chromeextension-onupdated.html#google_vignette
 let timer: number;
-
-// イベント登録
 chrome.tabs.onUpdated.addListener((tabId, changeInfo, tab) => {
   if (changeInfo.status === undefined) return;
 
