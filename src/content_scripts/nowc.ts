@@ -1,3 +1,5 @@
+const reloadInterval = 1000 * 60 * 2.5; // 2.5分
+
 const findReloadButton = (): HTMLElement | undefined => {
   const xpathResult = document.evaluate(
     '//i[contains(@class, "material-icons") and contains(text(), "update")]',
@@ -54,12 +56,12 @@ const reload = () => {
   (reloadButton as HTMLElement).click();
 };
 
-// NOTE: ここで非同期処理を行う場合は true を返す必要がある
-// https://developer.mozilla.org/ja/docs/Mozilla/Add-ons/WebExtensions/API/runtime/onMessage#sendresponse_%E3%82%92%E4%BD%BF%E7%94%A8%E3%81%97%E3%81%9F%E9%9D%9E%E5%90%8C%E6%9C%9F%E3%81%AE%E5%BF%9C%E7%AD%94%E3%81%AE%E9%80%81%E4%BF%A1
-// NOTE: ここでは async/await 記法は利用できないので注意
-// https://stackoverflow.com/questions/44056271/chrome-runtime-onmessage-response-with-async-await
-chrome.runtime.onMessage.addListener((message) => {
-  if (message.type === 'nowc') {
+const main = () => {
+  setInterval(() => {
     reload();
-  }
-});
+  }, reloadInterval);
+  console.log('[JBMR] Start nowcast auto reload.');
+};
+
+window.addEventListener('load', main);
+window.removeEventListener('unload', main);
